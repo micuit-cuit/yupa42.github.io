@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+ }
+ * {
+    box-sizing: border-box;
+ }
+ .card {
+    color: rgb(52,52,64);
+    float: left;
+    width: calc(33% - 20px);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    height: 200px;
+    text-align: center;
+    position: relative;
+ }
+ .card p {
+    font-size: 18px;
+ }
+ .cardContainer:after {
+    content: "";
+    display: table;
+    clear: both;
+ }
+ body {
+    background-color: rgb(52,52,64);
+
+ }
+
+.icon {
+    width: 100px;
+      height: 100px;
+      display: block;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+}
+.notification {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   border: 2px solid #f00;
+   width: 30px;
+   height: 30px;
+   background-color: #ff0000;
+   position: absolute;
+   top: -11px;
+   left: 98%;
+   font-size: 10px;
+   line-height: 20px;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 400;
+   color: #FFF;
+   font-weight: 700;
+   }
+   
+ @media screen and (max-width: 1200px) {
+    .card {
+       width: 30%;
+    }
+ }
+ 
+ @media screen and (max-width: 900px) {
+    .card {
+       width: 45%;
+    }
+ }
+ @media screen and (max-width: 600px) {
+    .card {
+       width: 95%;
+    }
+ }
+
+

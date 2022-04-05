@@ -118,12 +118,11 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages.awp?
   "method": "POST",
   "mode": "cors",
   "credentials": "omit"
-});
-//convertir in js object
-var obj = JSON.parse(getmesage);
-console.log(obj);
+}).then(response => response.json())
+    .then(data => {
+        console.log(data);
 //create a card for each message
-for (var i = 0; i < obj.data.pagination.messagesRecusCount; i++) {
+for (var i = 0; i < data.data.pagination.messagesRecusCount; i++) {
     var card = document.createElement("div");
     card.className = "card";
     //card add random color
@@ -131,14 +130,16 @@ for (var i = 0; i < obj.data.pagination.messagesRecusCount; i++) {
     //add onclick (mesage()) to card
     card.onclick = "mesage()";
     //add id to card
-    card.id = obj.data.messages.received[i].id;
+    card.id = data.data.messages.received[i].id;
     var title = document.createElement("h2");
-    title.innerHTML = obj.data.messages.received[i].subject;
+    title.innerHTML = data.data.messages.received[i].subject;
     var content = document.createElement("p");
-    content.innerHTML = obj.data.messages.received[i].from.name;
+    content.innerHTML = data.data.messages.received[i].from.name;
     card.appendChild(title);
     card.appendChild(content);
     document.getElementById("message_nodif_card").appendChild(card);
     console.log(card);
     
 }
+    }
+    );

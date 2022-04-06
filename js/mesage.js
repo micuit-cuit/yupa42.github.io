@@ -24,7 +24,7 @@ var typeUser = getCookie("typeUser");
 console.log(typeUser);
 //if the token is not null, display the hub page
 if (token == null) {
-    //window.location.href = "index.html";
+    window.location.href = "index.html";
     }
 //if the typeUser is E then set typeUserLong to "eleves"
 if (typeUser == "E") {

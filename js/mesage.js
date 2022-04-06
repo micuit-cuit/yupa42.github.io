@@ -63,11 +63,11 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
         console.log(data);
         //if the token is invalid, display the login page
         if (data.message == "Token invalide !") {
-            //window.location.href = "index.html";
+            window.location.href = "index.html";
             console.log("Token invalide !");
         }
         if (data.message == "Session expirée !") {
-            //window.location.href = "index.html";
+            window.location.href = "index.html";
             console.log("Session expirée !");
         }
     }

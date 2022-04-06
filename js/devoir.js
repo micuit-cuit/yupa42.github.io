@@ -30,6 +30,9 @@ if (token == null) {
 if (typeUser == "E") {
     var typeUserLong = "eleves";
 }
+if (typeUser == "1") {
+  var typeUserLong = "familles";
+}
 //if the typeUser is P then set typeUserLong to "professeurs"
 if (typeUser == "P") {
     var typeUserLong = "professeurs";

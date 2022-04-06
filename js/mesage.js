@@ -30,6 +30,9 @@ if (token == null) {
 if (typeUser == "E") {
     var typeUserLong = "eleves";
 }
+if (typeUser == "1") {
+  var typeUserLong = "familles";
+}
 //if the typeUser is P then set typeUserLong to "professeurs"
 if (typeUser == "P") {
     var typeUserLong = "professeurs";
@@ -128,7 +131,7 @@ for (var i = 0; i < data.data.pagination.messagesRecusCount; i++) {
     //card add random color
     card.style.backgroundColor = randomColor({luminosity: 'light'});
     //add onclick (mesage()) to card
-    card.onclick = "mesage()";
+    card.setAttribute("onclick", "mesage(data.data.messages.received[i].id)")
     //add id to card
     card.id = data.data.messages.received[i].id;
     var title = document.createElement("h2");

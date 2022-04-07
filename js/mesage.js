@@ -118,6 +118,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
       menu.style.display = "block";
       int.style.display = "none";
       } 
+mesageGet();
   //get year scolar
   var year = new Date().getFullYear();
   //if actual date is in a 1 september > 30 december year = year "-" year + 1 else year = 1 - year "-" year  
@@ -229,12 +230,10 @@ function readMessage(id){
     "credentials": "omit"
   }).then(response => response.json())
   .then(data => {
-
+    messageSet(data);
   })
 }
-function messageSet(){
-
-  data = {"code":200, "token":"token", "host":"HTTP64", "data":{"id":36763, "mtype":"received", "read":true, "idDossier":-1, "idClasseur":0, "transferred":false, "answered":false, "to_cc_cci":"to", "brouillon":false, "subject":"Projet picasso", "content":"Qm9uam91ciwmbmJzcDs8ZGl2PlBvdXIgY2V1eCBxdWkgc291aGFpdGVudCBwYXJ0aWNpcGVyIGF1IHBy\nb2pldCBkJyYjMjMzO2NoYW5nZSBlbiBFc3BhZ25lIG4nb3VibGlleiBwYXMgZCdlbnZveWVyIHZvcyBk\nb3NzaWVycyAmIzIyNDsgTW1lIExhY2hhbCBlbGxlIGRvaXQgcmVtcGxpciB1bmUgcGFydGllIGRlcyBk\nb3NzaWVycyBldCBlbnZveWVyICYjMjI0OyBzb24gdG91ciB0b3V0IGNlbGEgYXUgcmVjdG9yYXQuJm5i\nc3A7PC9kaXY+PGRpdj5Db3JkaWFsZW1lbnQsJm5ic3A7PC9kaXY+PGRpdj5JcmxhbmRhIExhdmlnbmUm\nbmJzcDs8L2Rpdj4=", "date":"2022-04-06 16:34:01", "to":[], "files":[], "from":{"name":"Mme Irlanda LAVIGNE", "nom":"LAVIGNE", "prenom":"Irlanda", "particule":"", "civilite":"Mme", "role":"P", "listeRouge":false, "id":790, "read":true, "fonctionPersonnel":""}}}
+function messageSet(data){
 
   var mesageDiv = document.createElement("div");
   mesageDiv.className = "message";

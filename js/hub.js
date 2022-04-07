@@ -24,7 +24,7 @@ var typeUser = getCookie("typeUser");
 console.log(typeUser);
 //if the token is not null, display the hub page
 if (token == null) {
-    window.location.href = "index.html";
+    //window.location.href = "index.html";
     }
 //if the typeUser is E then set typeUserLong to "eleves"
 if (typeUser == "E") {
@@ -63,11 +63,11 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
         console.log(data);
         //if the token is invalid, display the login page
         if (data.message == "Token invalide !") {
-            window.location.href = "index.html";
+            //window.location.href = "index.html";
             console.log("Token invalide !");
         }
         if (data.message == "Session expirée !") {
-            window.location.href = "index.html";
+            //window.location.href = "index.html";
             console.log("Session expirée !");
         }
     }

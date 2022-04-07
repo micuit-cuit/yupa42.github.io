@@ -93,11 +93,9 @@ body {
    border-color: rgb(43, 198, 226);
    border-style: solid;
    position: absolute;
-   top: 10px;
+   top: 104px;
    right: 10px;
    left: 10px;
-   height: 100%;
-   
    }
  .card {
    color: rgb(52,52,64);
@@ -118,6 +116,40 @@ body {
    display: table;
    clear: both;
 }
+.message {
+   right: 50px;
+   left: 50px;
+   position: absolute;
+   background-color: chartreuse;
+   border-color: black;
+   border-radius: 10px;
+   border-style: solid;
+   border-width: 7px;
+   bottom: 50px;
+   top: 50px;
+}
+.message p {
+   font-size: 18px;
+   margin: 10px;
+}
+.message h2 {
+   font-size: 20px;
+   text-align: center;
+}
+.menu {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   right: 10px;
+   height: 70px;
+   background-color: #ff9800;
+   border-radius: 10px;
+   text-align: center;
+   border-color: black;
+   border-style: solid;
+   border-width: 7px;
+
+}
 @media screen and (max-width: 1200px) {
    .card {
       width: 40%;
@@ -132,5 +164,11 @@ body {
 @media screen and (max-width: 600px) {
    .card {
       width: 90%;
+   }
+   .message {
+      right: 10px;
+      left: 10px;
+      bottom: 10px;
+      top: 10px;
    }
 }

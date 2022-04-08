@@ -132,7 +132,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
       } 
       function login(int){
         //if int =1 display load
-        var load=document.getElementById("loading");
+        var load=document.getElementById("loadDiv");
         console.log(load);
         if (int == 1) {
           console.log(int);

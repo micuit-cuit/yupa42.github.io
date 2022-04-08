@@ -256,7 +256,7 @@ function readMessage(id){
   })
 }
 function messageSet(data){
-
+  document.getElementsByClassName("message").remove();
   var mesageDiv = document.createElement("div");
   mesageDiv.className = "message";
   var title = document.createElement("h2");

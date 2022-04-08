@@ -32,6 +32,17 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
       }
   }
 }
+function yearScolar () {
+var year = new Date().getFullYear();
+  //if actual date is in a 1 september > 30 december year = year "-" year + 1 else year = 1 - year "-" year  
+  if (new Date().getMonth() > 8) {
+    var yearScolar = year + "-" + (year + 1);
+  } else {
+    var yearScolar = (year - 1) + "-" + year;
+  }
+  return yearScolar;
+}
+
 //get token in the cookie
 var token = getCookie("token");
 console.log(token);
@@ -59,6 +70,7 @@ if (typeUser == "P") {
 
 
 //if the token is invalid, display the login page
+login(1);
 fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCommun.awp?verbe=get&v=4.6.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",
@@ -80,7 +92,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
   "credentials": "omit"
 }).then(response => response.json())
     .then(data => {
-
+      login(0);
       console.log(data);
         //if the token is invalid, display the login page
         if (data.message == "Token invalide !") {
@@ -118,17 +130,24 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
       menu.style.display = "block";
       int.style.display = "none";
       } 
+      function login(int){
+        //if int =1 display load
+        var load=document.getElementById("loading");
+        console.log(load);
+        if (int == 1) {
+          console.log(int);
+        load.style.display = "block";
+        console.log(int);
+        }else{
+        load.style.display = "none";
+        }
+      }   
 mesageGet();
   //get year scolar
-  var year = new Date().getFullYear();
-  //if actual date is in a 1 september > 30 december year = year "-" year + 1 else year = 1 - year "-" year  
-  if (new Date().getMonth() > 8) {
-    var yearScolar = year + "-" + (year + 1);
-  } else {
-    var yearScolar = (year - 1) + "-" + year;
-  }
+  
 //get the mesage
 function mesageGet () { 
+  login(1);
 fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages.awp?force=true&typeRecuperation=received&idClasseur=0&orderBy=date&order=desc&query=&onlyRead=&page=0&itemsPerPage=20&verbe=getall&v=4.6.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",
@@ -145,12 +164,13 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages.awp?
   },
   "referrer": "https://www.ecoledirecte.com/",
   "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": "data={\n    \"anneeMessages\": \""+yearScolar+"\"\n}",
+  "body": "data={\n    \"anneeMessages\": \""+yearScolar()+"\"\n}",
   "method": "POST",
   "mode": "cors",
   "credentials": "omit"
 }).then(response => response.json())
     .then(data => {
+      login(0);
       card(data);
     }
     );}
@@ -208,6 +228,7 @@ function cardSent(data){
   }
 //get id and get message to id and display it
 function readMessage(id){
+  login(1);
   fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages/"+id+".awp?verbe=get&mode=destinataire&v=4.6.0", {
     "headers": {
       "accept": "application/json, text/plain, */*",
@@ -224,12 +245,13 @@ function readMessage(id){
     },
     "referrer": "https://www.ecoledirecte.com/",
     "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": "data={\n    \"anneeMessages\": \""+yearScolar+"\"\n}",
+    "body": "data={\n    \"anneeMessages\": \""+yearScolar()+"\"\n}",
     "method": "POST",
     "mode": "cors",
     "credentials": "omit"
   }).then(response => response.json())
   .then(data => {
+    login(0);
     messageSet(data);
   })
 }
@@ -247,6 +269,7 @@ function messageSet(data){
 }
 //function mesagesens
 function mesageSens () {
+  login(1);
   fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages.awp?force=false&typeRecuperation=sent&idClasseur=0&orderBy=date&order=desc&query=&onlyRead=&page=0&itemsPerPage=20&verbe=getall&v=4.6.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",
@@ -263,12 +286,13 @@ function mesageSens () {
   },
   "referrer": "https://www.ecoledirecte.com/",
   "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": "data={\n    \"anneeMessages\": \""+yearScolar+"\"\n}",
+  "body": "data={\n    \"anneeMessages\": \""+yearScolar()+"\"\n}",
   "method": "POST",
   "mode": "cors",
   "credentials": "omit"
 }).then(response => response.json())
 .then(data => {
+  login(0);
   cardSent(data);
 });
 }

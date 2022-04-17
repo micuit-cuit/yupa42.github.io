@@ -42,7 +42,18 @@ var year = new Date().getFullYear();
   }
   return yearScolar;
 }
-
+function login(int){
+  //if int =1 display load
+  var load=document.getElementById("loadDiv");
+  console.log(load);
+  if (int == 1) {
+    console.log(int);
+  load.style.display = "block";
+  console.log(int);
+  }else{
+  load.style.display = "none";
+  }
+}  
 //get token in the cookie
 var token = getCookie("token");
 console.log(token);
@@ -130,18 +141,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
       menu.style.display = "block";
       int.style.display = "none";
       } 
-      function login(int){
-        //if int =1 display load
-        var load=document.getElementById("loadDiv");
-        console.log(load);
-        if (int == 1) {
-          console.log(int);
-        load.style.display = "block";
-        console.log(int);
-        }else{
-        load.style.display = "none";
-        }
-      }   
+ 
 mesageGet();
   //get year scolar
   

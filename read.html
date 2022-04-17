@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ecoleDirect test</title>
+    <link rel="stylesheet" href="css/read.css">    
+    <script  src="js/read.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body>
+<div class="destinataire" id="destinataire"></div>
+<div class="sujet" id="sujet"><input type="text" id="textSujet" class="textSujet" name="sujet" placeholder="sujet" required="" ></div>
+<div class="message" id="mesage"><main style="height: -webkit-fill-available;"><div class="centered" style="height: -webkit-fill-available;"><div class="row row-editor"><div class="editor-container"><div class="editor" onclick="getTexte()" id="editor" ></div></div></div></div></div></main>
+<script src="js/ckeditor.js"></script>
+<script>ClassicEditor
+.create( document.querySelector( '.editor' ), {
+licenseKey: '',
+} )
+.then( editor => {
+window.editor = editor;
+} )
+.catch( error => {
+console.error( 'Oops, something went wrong!' );
+console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+console.warn( 'Build id: 2pphvijt0irs-7ix8rtk7y6r' );
+console.error( error );
+} );
+</script></div></div>
+<div class="piecesJointes" id="piecesJointes" ><form class="piecesJointes2">
+  <div>
+    <label for="image_uploads" class="image_uploads">Choisir les fichiers à télécharger</label>
+    <input onclick="file()" type="file" id="imageUploads" class="input" name="image_uploads" multiple>
+  </div>
+  <div class="preview" id="preview">
+    <p class="Ppreview">Aucun fichier actuellement sélectionné pour le téléchargement</p>
+  </div>
+  <div>
+    <button>Soumettre</button>
+  </div></div>
+
+<div class="actionBar" id="actionBar"><button id="anuler" onclick="retour()"><p>anuler</p></button><button id="envoyer" onclick="retour()"><p>envoyer</p></button></div>
+<div id="loadDiv" ><img src="media/icon/loading.png" id="loading"/></div>
+<div id="1"></div>

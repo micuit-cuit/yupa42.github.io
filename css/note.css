@@ -1,0 +1,92 @@
+body {
+    background-color: rgb(52,52,64);
+
+ }
+.trimestre {
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    height: 57px;
+    background-color: blue;
+    border-radius: 10px;
+    position: absolute;
+    border-color: darkblue;
+    border-width: 10px;
+    border-style: solid;
+}
+.note {
+    top: 117px;
+    left: 30px;
+    right: 30px;
+    height: 50%;
+    background-color: rgb(50, 214, 44);
+    border-radius: 10px;
+    position: absolute;
+    border-color:darkgreen;
+    border-width: 10px;
+    border-style: solid;
+}
+.resulta {
+    top: calc(50% + 147px);
+    left: 30px;
+    right: 30px;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 10px;
+    position: absolute;
+    border-color: darkred;
+    border-width: 10px;
+    border-style: solid;
+}
+#unerTrimestre {left: 0%;}
+#deuxemeTrimestre {left: 26%;}
+#troixemeTrimestre {left: 52%;}
+#annee {left: calc( 80% - 5px );}
+.nonActive{
+    cursor:pointer;
+    color: white;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-style: solid;
+    height: 50px;
+    width: 20%;
+    position: absolute;
+    text-align: center;
+    font-weight: normal;
+    transition: 0.5s;
+
+}
+.nonActive:hover {
+    color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);border-color: white;font-weight: bold;
+}
+.active {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-style: solid;
+    height: 50px;
+    width: 20%;
+    position: absolute;
+    text-align: center;
+    transition: 0.5s;
+    color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);border-color: white;font-weight: bold;
+
+}
+th.titel {text-align: center;font-weight: bold;font-family: cursive;font-size: larger;}
+
+td.discipline {font-weight: bold;}
+
+td.moyenne {font-weight: 900;}
+
+thead {text-align: center;}
+
+td.noteMatierre {text-align: center;}
+
+table {height: -webkit-fill-available;width: -webkit-fill-available;color: red;}
+
+
+.nonActiveTableau {display: none;position: absolute;}
+.activeTableau {display: revert;position: absolute;}

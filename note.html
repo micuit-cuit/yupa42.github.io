@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ecoleDirect test</title>
+    <link rel="stylesheet" href="css/note.css">
+    <script  src="js/note.js" type="text/javascript"></script></head>
+<body>
+<div class="trimestre" id="trimestre">
+    <div class="nonActive" onclick="clickScelect(unerTrimestre, TrimestreTableau0)" id="unerTrimestre"><p>1er Trimestre</p></div>
+    <div class="nonActive" onclick="clickScelect(deuxemeTrimestre, TrimestreTableau2)" id="deuxemeTrimestre"><p>2eme Trimestre</p></div>
+    <div class="nonActive" onclick="clickScelect(troixemeTrimestre, TrimestreTableau4)" id="troixemeTrimestre"><p>3eme Trimestre</p></div>
+    <div class="active" onclick="clickScelect(annee, anneeTableau)" id="annee"><p>Année</p></div>
+</div>
+<div class="note" id="note">
+<table class="activeTableau" id="anneeTableau" border="1">
+	<thead>
+		<tr>
+			<th id="Matierre">Matierre</th>
+			<th id="moyene">moyene</th>
+			<th id="note">note</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<table class="nonActiveTableau" id="TrimestreTableau0" border="1">
+	<thead>
+		<tr>
+			<th id="Matierre">Matierre</th>
+			<th id="moyene">moyene</th>
+			<th id="note">note</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<table class="nonActiveTableau" id="TrimestreTableau2" border="1">
+	<thead>
+		<tr>
+			<th id="Matierre">Matierre</th>
+			<th id="moyene">moyene</th>
+			<th id="note">note</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<table class="nonActiveTableau" id="TrimestreTableau4" border="1">
+	<thead>
+		<tr>
+			<th id="Matierre">Matierre</th>
+			<th id="moyene">moyene</th>
+			<th id="note">note</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+</div>
+<div class="resulta" id="resulta"></div>

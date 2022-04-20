@@ -90,3 +90,5 @@ table {height: -webkit-fill-available;width: -webkit-fill-available;color: red;}
 
 .nonActiveTableau {display: none;position: absolute;}
 .activeTableau {display: revert;position: absolute;}
+.activeMoyene {display: block;position: absolute;}
+.nonActiveMoyene {display: none;position: absolute;}

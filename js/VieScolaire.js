@@ -89,4 +89,4 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
       var yyyy = today.getFullYear();
       var date = yyyy + '-' + mm + '-' + dd;
       */
-document.getElementById("iframe").src = "https://www.ecoledirecte.com/ "+ typeUser + "/" + idUser +"/EmploiDuTemps";
+      document.getElementById("iframe").src = "https://www.ecoledirecte.com/ "+ typeUser + "/" + idUser +"/VieScolaire";

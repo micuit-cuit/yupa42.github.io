@@ -2,8 +2,41 @@ body {
     background-color: rgb(52,52,64);
 
  }
+ .menuP{
+   width: min-content;
+   display: inline-block;
+   position: inherit;
+   top: -10px;
+}
+a {
+   text-decoration: none;
+   color: black;
+   cursor: pointer;
+}
+    .menu div {
+        width: 30%;
+        background-color: rgba(88, 88, 88, 0.322);
+        font-family: 'Roboto', sans-serif;
+        float: left;
+         position: relative;
+         margin: 5px calc(5% - 50px);
+         height: 55px;
+         border-radius: 10px;
+         top: 0;
+         left: 0;
+         transition: 0.5s;
+         border-color: black;
+         border-style: none;
+         cursor: pointer;
 
-    
+    }
+    .menu div:hover {
+       background-color: rgba(255, 0, 0, 0);
+       top: -5px;left: -10px;
+       border-color: black;
+      border-style: solid;
+      border-width: 0.5px;
+   }
     .div1 {
         transition: Width 0.7s;
          position: absolute;
@@ -177,12 +210,18 @@ body {
    .card {
       width: 40%;
    }
+   .menuP {
+      display: inline-block;
+      }
 }
 
 @media screen and (max-width: 900px) {
    .card {
       width: 40%;
    }
+   .menuP {
+      display: none;
+      }
 }
 @media screen and (max-width: 600px) {
    .card {
@@ -194,4 +233,7 @@ body {
       bottom: 10px;
       top: 10px;
    }
+   .menuP {
+      display: none;
+      }
 }

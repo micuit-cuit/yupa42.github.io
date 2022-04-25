@@ -91,6 +91,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
       var date = yyyy + '-' + mm + '-' + dd;
 
       //display the devoir in the container in card 
+      function reset(){
       fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/cahierdetexte.awp?verbe=get&v=4.9.0", {
         "headers": {
           "accept": "application/json, text/plain, */*",
@@ -115,8 +116,9 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
           .then(data => {
       console.log(data);
     setdisplay(data);
-    });
+    });}
 function setdisplay(data){
+setTimeout(function(){
 //loop for all devoir 
 //get name of object in data.data
 var numberObject = Object.keys(data.data).length;
@@ -139,6 +141,7 @@ for (var i = 0; i < numberObject; i++) {
     //get date of devoir
     var date = data.data[object[i]][j].donneLe;
     //get date of devoir in format YYYY-MM-DD
+    
     var aFairePour = keys(data.data)[i];
     //get effectue of devoir
     var ifEffectue = data.data[object[i]][j].effectue;
@@ -168,4 +171,6 @@ for (var i = 0; i < numberObject; i++) {
   console.log(contenaire);
   contenaire.appendChild(card);
 }}
+document.getElementById("reset").style.display = "none";
 }
+,1000);  }

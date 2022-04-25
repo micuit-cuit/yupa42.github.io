@@ -51,10 +51,10 @@ if (token == null) {
     }
 //if the typeUser is E then set typeUserLong to "eleves"
 if (typeUser == "E") {
-    var typeUserLong = "eleves";
+    var typeUserLong = "Eleves";
 }
 if (typeUser == "1") {
-  var typeUserLong = "familles";
+  var typeUserLong = "Familles";
 }
 //if the typeUser is P then set typeUserLong to "professeurs"
 if (typeUser == "P") {

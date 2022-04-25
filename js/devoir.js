@@ -139,7 +139,7 @@ for (var i = 0; i < numberObject; i++) {
     //get date of devoir
     var date = data.data[object[i]][j].donneLe;
     //get date of devoir in format YYYY-MM-DD
-    var aFairePour = data.data[object[i]];
+    var aFairePour = keys(data.data)[i];
     //get effectue of devoir
     var ifEffectue = data.data[object[i]][j].effectue;
     //create card and add to devoir

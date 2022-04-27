@@ -171,6 +171,5 @@ for (var i = 0; i < numberObject; i++) {
   console.log(contenaire);
   contenaire.appendChild(card);
 }}
-document.getElementById("reset").style.display = "none";
 }
 reset()

@@ -118,7 +118,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
     setdisplay(data);
     });}
 function setdisplay(data){
-setTimeout(function(){
+
 //loop for all devoir 
 //get name of object in data.data
 var numberObject = Object.keys(data.data).length;
@@ -149,7 +149,7 @@ for (var i = 0; i < numberObject; i++) {
     var card = document.createElement("div");
     card.className = "card";
     card.style.backgroundColor = color;
-    card.innerHTML = "<H1>matiere : " + matiereName+"</H1>";
+    card.innerHTML = "<H1>" + matiereName+"</H1>";
     card.innerHTML += "<H2>pour le : " + aFairePour+"</H2>";
     card.value = aFairePour;
     card.id = devoirId;
@@ -161,7 +161,7 @@ for (var i = 0; i < numberObject; i++) {
     }
   card.innerHTML += "donne le : " + date;
   if (ifIntero == "true") {
-    card.innerHTML += " Interrogation";
+    card.innerHTML += " Contrôle";
   }
   if (ifEffectue == "true") {
     card.innerHTML += " Effectue";
@@ -173,4 +173,3 @@ for (var i = 0; i < numberObject; i++) {
 }}
 document.getElementById("reset").style.display = "none";
 }
-,1000);  }

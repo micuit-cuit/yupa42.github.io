@@ -3,13 +3,13 @@ body {
  }
 
 .card {
-    color: rgb(52,52,64);
+    color: rgb(0, 0, 0);
     float: left;
     width: 22%;
     padding: 10px;
     border-radius: 10px;
     margin: 10px;
-    height: 100px;
+    height: 130px;
     text-align: center;
     position: relative;
     cursor: pointer;

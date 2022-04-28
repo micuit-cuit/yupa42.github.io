@@ -172,6 +172,13 @@ for(var i=0;i<numberDevoir;i++){
             interrogationDiv.setAttribute("id","notifInterrogation");
             div.appendChild(interrogationDiv);
         }
+        //if doner contains kwyk add  a link "https://www.kwyk.fr/devoirs/"
+        if(doner.includes("kwyk")){
+            var a=document.createElement("a");
+            a.setAttribute("href","https://www.kwyk.fr/devoirs/");
+            a.innerHTML="kwyk link";
+            p.appendChild(a);
+        }
         //parente all the elements
         div.appendChild(h1);
         div.appendChild(p);

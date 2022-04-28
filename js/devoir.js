@@ -1,4 +1,4 @@
-const colorsMatiere = {"FRANCAIS":"blue","MATHEMATIQUES":"red","PHYSIQUE":"green","CHIMIE":"yellow","SVT":"orange","HISTOIRE":"purple","GEOGRAPHIE":"brown","SOCIOLOGIE":"pink","EDUCATION":"grey","ART":"black","PHILOSOPHIE":"white","PHYSIQUE-CHIMIE":"yellow","SVT":"orange","SCIENCES VIE & TERRE":"orange","HISTOIRE-GEOGRAPHIE":"brown","SC. ECONO.& SOCIALES":"grey"};
+const colorsMatiere = {"FRANC":"#03a9f4","MATHS":"red","SPC":"green","SVT":"orange","HI":"purple","GE":"brown","SES":"pink","AGL1":"yellow","HI-GE":"purple","LATIN":"darkgoldenrod","A-PLA":"gray","ALL2":"orange"};
 function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -134,10 +134,12 @@ for (var i = 0; i < numberObject; i++) {
     //get devoir id
     var devoirId = data.data[object[i]][j].idDevoir;
     //get color of devoir
-    // get matiere name
+    //get matier of devoir
     var matiereName = data.data[object[i]][j].matiere;
-    //get color of matiere in colorsMatiere for matiereName
-    var color = colorsMatiere[matiereName];
+    // get codeMatiere
+    var codeMatiere = data.data[object[i]][j].codeMatiere;
+    //get color of matiere in colorsMatiere for codeMatiere
+    var color = colorsMatiere[codeMatiere];
     //get date of devoir
     var date = data.data[object[i]][j].donneLe;
     //get date of devoir in format YYYY-MM-DD

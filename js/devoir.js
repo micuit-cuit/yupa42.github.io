@@ -11,7 +11,7 @@ function getCookie(cname) {
         return c.substring(name.length, c.length);
       }
     }
-    return "";
+    return "{}";
   }
 function base64DecodeUnicode(str) {
       // Convert Base64 encoded bytes to percent-encoding, and then get the original string.

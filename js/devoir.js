@@ -150,7 +150,7 @@ for (var i = 0; i < numberObject; i++) {
       console.log(colorsMatiere);
       document.cookie = "colorsMatiere="+JSON.stringify(colorsMatiere)+";expires=Fri, 31 Dec 9999 23:59:59 GMT";
       colorsMatiere = JSON.parse(getCookie("colorsMatiere"));
-      console.log(colorsMatiere);+-
+      console.log(colorsMatiere);
     }
     //get date of devoir
     var date = data.data[object[i]][j].donneLe;

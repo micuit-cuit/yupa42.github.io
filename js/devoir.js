@@ -1,4 +1,3 @@
-const colorsMatiere = {"FRANC":"#03a9f4","MATHS":"red","SPC":"green","SVT":"orange","HI":"purple","GE":"brown","SES":"pink","AGL1":"yellow","HI-GE":"purple","LATIN":"darkgoldenrod","A-PLA":"gray","ALL2":"orange"};
 function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -23,6 +22,11 @@ function base64DecodeUnicode(str) {
   
       return decodeURIComponent(percentEncodedStr);
   }
+
+const colorsMatiere = getCookie("colorsMatiere");
+if (colorsMatiere == null) {
+    colorsMatiere = "{[]}";
+}
 //get token in the cookie
 var token = getCookie("token");
 console.log(token);
@@ -140,6 +144,11 @@ for (var i = 0; i < numberObject; i++) {
     var codeMatiere = data.data[object[i]][j].codeMatiere;
     //get color of matiere in colorsMatiere for codeMatiere
     var color = colorsMatiere[codeMatiere];
+    //if the color is null, set add color to the matiere in cookies and set color to the matiere in colorsMatiere for codeMatiere
+    if (color == null) {
+      color = colorsMatiere[codeMatiere] += randomColor({luminosity: 'light'});
+      document.cookie = "colorsMatiere="+JSON.stringify(colorsMatiere)+";expires=Fri, 31 Dec 9999 23:59:59 GMT";
+    }
     //get date of devoir
     var date = data.data[object[i]][j].donneLe;
     //get date of devoir in format YYYY-MM-DD

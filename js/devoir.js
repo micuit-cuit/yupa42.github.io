@@ -23,7 +23,7 @@ function base64DecodeUnicode(str) {
       return decodeURIComponent(percentEncodedStr);
   }
 
-const colorsMatiere = getCookie("colorsMatiere");
+const colorsMatiere = JSON.parse(getCookie("colorsMatiere"));
 if (colorsMatiere == null) {
     colorsMatiere = "{[]}";
 }
@@ -146,7 +146,10 @@ for (var i = 0; i < numberObject; i++) {
     var color = colorsMatiere[codeMatiere];
     //if the color is null, set add color to the matiere in cookies and set color to the matiere in colorsMatiere for codeMatiere
     if (color == null) {
-      color = colorsMatiere[codeMatiere] += randomColor({luminosity: 'light'});
+      color = randomColor({luminosity: 'light'});
+      //add color to  the object colorsMatiere
+      colorsMatiere[codeMatiere] = color;
+      console.log(colorsMatiere);
       document.cookie = "colorsMatiere="+JSON.stringify(colorsMatiere)+";expires=Fri, 31 Dec 9999 23:59:59 GMT";
     }
     //get date of devoir

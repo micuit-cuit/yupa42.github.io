@@ -173,7 +173,7 @@ for(var i=0;i<numberDevoir;i++){
             div.appendChild(interrogationDiv);
         }
         //if doner contains kwyk add  a link "https://www.kwyk.fr/devoirs/"
-        if(doner.includes("kwyk")){
+        if(doner.includes("kwyk")||doner.includes("Kwyk")||doner.includes("KWYK")||doner.includes("KWYK.fr")||doner.includes("KWYK.FR")||doner.includes("KWYK.fr")||doner.includes("KWYK.FR")){
             var a=document.createElement("a");
             a.setAttribute("href","https://www.kwyk.fr/devoirs/");
             a.innerHTML="kwyk link";

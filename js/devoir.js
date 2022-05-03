@@ -174,13 +174,13 @@ for (var i = 0; i < numberObject; i++) {
       window.location.href = url;
     }
   card.innerHTML += "donne le : " + date;
-  if (ifIntero == "true") {
+  if (ifIntero == true) {
     var interrogation = document.createElement("div");
     interrogation.className = "interrogation";
     interrogation.innerHTML = "CONTROLE";
     card.appendChild(interrogation);
   }
-  if (ifEffectue == "true") {
+  if (ifEffectue == true) {
     var effectue = document.createElement("div");
     effectue.className = "effectue";
     effectue.innerHTML = "";

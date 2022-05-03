@@ -2,7 +2,13 @@
 function connectToEcoledirecte() {
 var login = document.getElementById("login").value;
 var password = document.getElementById("password").value;
-
+//if the login and passworld are betatest, display the hub page
+if (login == "betatest" && password == "betatest") {
+  document.cookie = "token=" + "betatest";
+  document.cookie = "idUser=" + "betatest";
+  document.cookie = "typeUser=" + "betatest"; 
+  window.location.href = "hub.html";
+}
 fetch("https://api.ecoledirecte.com/v3/login.awp?v=4.6.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",

@@ -49,7 +49,6 @@ if (typeUser == "1") {
 if (typeUser == "P") {
     var typeUserLong = "professeurs";
 }
-
 //if the token is invalid, display the login page
 fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCommun.awp?verbe=get&v=4.6.0", {
   "headers": {
@@ -94,6 +93,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
 
       //display the devoir in the container in card 
       function reset(){
+        
       fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/cahierdetexte.awp?verbe=get&v=4.9.0", {
         "headers": {
           "accept": "application/json, text/plain, */*",
@@ -175,11 +175,17 @@ for (var i = 0; i < numberObject; i++) {
     }
   card.innerHTML += "donne le : " + date;
   if (ifIntero == "true") {
-    card.innerHTML += " Contrôle";
+    var interrogation = document.createElement("div");
+    interrogation.className = "interrogation";
+    interrogation.innerHTML = "CONTROLE";
+    card.appendChild(interrogation);
   }
   if (ifEffectue == "true") {
-    card.innerHTML += " Effectue";
-  }
+    var effectue = document.createElement("div");
+    effectue.className = "effectue";
+    effectue.innerHTML = "";
+    card.appendChild(effectue);
+    }
   console.log(card);
   var contenaire = document.getElementById("contenaire");
   console.log(contenaire);

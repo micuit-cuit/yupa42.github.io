@@ -60,7 +60,6 @@ if (typeUser == "1") {
 if (typeUser == "P") {
     var typeUserLong = "professeurs";
 }
-
 //if the token is invalid, display the login page
 fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCommun.awp?verbe=get&v=4.6.0", {
   "headers": {
@@ -99,6 +98,7 @@ var idDevoir = $_GET('id');
 var dateDevoir = $_GET('date'); 
 console.log(idDevoir);
 //display devoir
+
 fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/cahierdetexte/"+dateDevoir+".awp?verbe=get&v=4.9.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",

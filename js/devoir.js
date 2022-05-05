@@ -179,6 +179,7 @@ for (var i = 0; i < numberObject; i++) {
     interrogation.className = "interrogation";
     interrogation.innerHTML = "CONTROLE";
     card.appendChild(interrogation);
+    
   }
   if (ifEffectue == true) {
     var effectue = document.createElement("div");
@@ -193,3 +194,32 @@ for (var i = 0; i < numberObject; i++) {
 }}
 }
 reset()
+//detecte for all card if hover and execute function updateCar
+window.onmousemove = mousemoved;
+ 
+function mousemoved()
+{
+
+var cards = document.getElementsByClassName("card");
+for (var i = 0; i < cards.length; i++) {
+  cards[i].onmouseover = function(){
+    updateCard(this);
+  }
+    cards[i].onmouseout = function(){
+      updateCardOut(this);
+    }
+}
+}
+//if the user hover on the card, update the style card
+function updateCard(e){
+  //get the div in child avec class interrogation of card
+  var div = e.getElementsByClassName("interrogation")[0];
+
+  div.style += "top: -7px;left: 30%;animation-iteration-count: 0;transform: rotate(360deg);width: 140px;";
+}
+//if the user hover out the card, update the style card
+function updateCardOut(e){
+  var div = e.getElementsByClassName("interrogation")[0];
+
+  div.style = "width: auto;background: red;position: absolute;padding: 3px;border-radius: 10px;top: -4px;left: -21px;transform: rotate(339deg);  transition: 0.5s;animation-name: interrogation;animation-duration: 0.7s;animation-iteration-count: infinite;";
+}

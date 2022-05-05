@@ -19,6 +19,27 @@ body {
 
 
  }
+ .interrogation {width: auto;background: red;position: absolute;padding: 3px;border-radius: 10px;top: -4px;left: -21px;transform: rotate(339deg);
+   transition: 0.5s;
+   animation-name: interrogation;
+   animation-duration: 0.7s;
+   animation-iteration-count: infinite;}
+   .effectue {padding: 10px;background: red;position: absolute;border-radius: 10px;top: -9px;left: 97%;}
+
+interrogation:hover div{top: -7px;left: 30%;animation-iteration-count: 0;transform: rotate(360deg);width: 140px;}
+@keyframes interrogation{
+   0%{
+      transform: rotate(330deg);
+   }
+   50%{
+      transform: rotate(340deg);
+   }
+   100%{
+      transform: rotate(330deg);
+   }
+
+}
+
  .card p {
     font-size: 18px;
  }

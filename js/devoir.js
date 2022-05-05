@@ -181,7 +181,7 @@ for (var i = 0; i < numberObject; i++) {
     card.appendChild(interrogation);
     
   }
-  if (ifEffectue == true) {
+  if (ifEffectue == false) {
     var effectue = document.createElement("div");
     effectue.className = "effectue";
     effectue.innerHTML = "";

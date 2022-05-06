@@ -81,7 +81,8 @@ if (typeUser == "P") {
 
 
 //if the token is invalid, display the login page
-login(1);
+setTimeout(function(){
+loading(true);
 fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCommun.awp?verbe=get&v=4.6.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",
@@ -103,7 +104,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
   "credentials": "omit"
 }).then(response => response.json())
     .then(data => {
-      login(0);
+      loading(false);
       console.log(data);
         //if the token is invalid, display the login page
         if (data.message == "Token invalide !") {
@@ -116,6 +117,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
         }
     }
     );
+}, 1000);
     function mesage(id){
       un=document.getElementById("1");
       deux=document.getElementById("2");
@@ -147,8 +149,8 @@ mesageGet();
   
 //get the mesage
 function mesageGet () { 
-  login(1);
-fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages.awp?force=true&typeRecuperation=received&idClasseur=0&orderBy=date&order=desc&query=&onlyRead=&page=0&itemsPerPage=20&verbe=getall&v=4.6.0", {
+  loading(true);
+  fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages.awp?force=true&typeRecuperation=received&idClasseur=0&orderBy=date&order=desc&query=&onlyRead=&page=0&itemsPerPage=20&verbe=getall&v=4.6.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",
     "accept-language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -170,7 +172,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages.awp?
   "credentials": "omit"
 }).then(response => response.json())
     .then(data => {
-      login(0);
+      loading(false);
       card(data);
     }
     );}
@@ -228,7 +230,7 @@ function cardSent(data){
   }
 //get id and get message to id and display it
 function readMessage(id){
-  login(1);
+  loading(true);
   fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages/"+id+".awp?verbe=get&mode=destinataire&v=4.6.0", {
     "headers": {
       "accept": "application/json, text/plain, */*",
@@ -251,7 +253,7 @@ function readMessage(id){
     "credentials": "omit"
   }).then(response => response.json())
   .then(data => {
-    login(0);
+    loading(false);
     messageSet(data);
   })
 }
@@ -269,7 +271,7 @@ function messageSet(data){
 }
 //function mesagesens
 function mesageSens () {
-  login(1);
+  loading(true);
   fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages.awp?force=false&typeRecuperation=sent&idClasseur=0&orderBy=date&order=desc&query=&onlyRead=&page=0&itemsPerPage=20&verbe=getall&v=4.6.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",
@@ -292,7 +294,7 @@ function mesageSens () {
   "credentials": "omit"
 }).then(response => response.json())
 .then(data => {
-  login(0);
+  loading(false);
   cardSent(data);
 });
 }

@@ -61,6 +61,10 @@ if (typeUser == "P") {
     var typeUserLong = "professeurs";
 }
 //if the token is invalid, display the login page
+setTimeout(() => {
+  
+
+loading(true);
 fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCommun.awp?verbe=get&v=4.6.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",
@@ -82,6 +86,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
   "credentials": "omit"
 }).then(response => response.json())
     .then(data => {
+      loading(false);
         console.log(data);
         //if the token is invalid, display the login page
         if (data.message == "Token invalide !") {
@@ -94,11 +99,12 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
         }
     }
     );
+  }, 1000);
 var idDevoir = $_GET('id');
 var dateDevoir = $_GET('date'); 
 console.log(idDevoir);
 //display devoir
-
+loading(true);
 fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/cahierdetexte/"+dateDevoir+".awp?verbe=get&v=4.9.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",
@@ -197,6 +203,7 @@ function effectue(id , efectuer){
 var notifEffectue=document.getElementById("notifEffectue");
 notifEffectue.innerHTML="effectué";
 notifEffectue.setAttribute("onclick","effectue("+id+",false)");
+loading(true);
     fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/cahierdetexte.awp?verbe=put&v=4.9.0", {
         "headers": {
           "accept": "application/json, text/plain, */*",
@@ -217,10 +224,11 @@ notifEffectue.setAttribute("onclick","effectue("+id+",false)");
         "method": "POST",
         "mode": "cors",
         "credentials": "omit"
-      });}else{
+      });loading(false)}else{
         var notifEffectue=document.getElementById("notifEffectue");
 notifEffectue.innerHTML="à faire";
 notifEffectue.setAttribute("onclick","effectue("+id+",true)");
+loading(true);
         fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/cahierdetexte.awp?verbe=put&v=4.9.0", {
         "headers": {
         "accept": "application/json, text/plain, */*",
@@ -242,5 +250,5 @@ notifEffectue.setAttribute("onclick","effectue("+id+",true)");
       "mode": "cors",
       "credentials": "omit"});
     }
-
+loading(false);
 }

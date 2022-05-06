@@ -183,29 +183,7 @@ a {
    border-width: 7px;
 
 }
-#loading {
-   animation-iteration-count: infinite;
-   animation-name: loadingAnim;
-   animation-duration: 4s;
-   animation-iteration-count: infinite;
-   width: 100px;
-   height: 100px;
-}
-#loadDiv {
-   position: absolute;
-   width: 100px;
-   height: 100px;
-   border-radius: 100px;
-   background-color: rgba(255, 255, 255, 0.432);
-   left: 45%;
-   top: 50%;
-   display: none;
 
-}
-@keyframes loadingAnim {
-   0%{transform: rotate(0deg);}
-   100%{transform: rotate(360deg);}
-}
 @media screen and (max-width: 1200px) {
    .card {
       width: 40%;

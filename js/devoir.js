@@ -50,6 +50,10 @@ if (typeUser == "P") {
     var typeUserLong = "professeurs";
 }
 //if the token is invalid, display the login page
+//active the loading
+function testToken() {
+loading(true);
+
 fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCommun.awp?verbe=get&v=4.6.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",
@@ -71,6 +75,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
   "credentials": "omit"
 }).then(response => response.json())
     .then(data => {
+      loading(false);
         console.log(data);
         //if the token is invalid, display the login page
         if (data.message == "Token invalide !") {
@@ -83,7 +88,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
         }
     }
     );
-      
+  }
       //get the actual date in the format YYYY-MM-DD
       var today = new Date();
       var dd = String(today.getDate()).padStart(2, '0');
@@ -93,7 +98,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
 
       //display the devoir in the container in card 
       function reset(){
-        
+        loading(true);
       fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/cahierdetexte.awp?verbe=get&v=4.9.0", {
         "headers": {
           "accept": "application/json, text/plain, */*",
@@ -116,6 +121,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
         "credentials": "omit"
       }).then(response => response.json())
           .then(data => {
+            loading(false);
       console.log(data);
     setdisplay(data);
     });}
@@ -181,7 +187,7 @@ for (var i = 0; i < numberObject; i++) {
     card.appendChild(interrogation);
     
   }
-  if (ifEffectue == false) {
+  if (ifEffectue == true) {
     var effectue = document.createElement("div");
     effectue.className = "effectue";
     effectue.innerHTML = "";
@@ -193,7 +199,12 @@ for (var i = 0; i < numberObject; i++) {
   contenaire.appendChild(card);
 }}
 }
+//set delay for 0.1 second
+setTimeout(function(){
+testToken();
 reset()
+}, 100);
+
 //detecte for all card if hover and execute function updateCar
 window.onmousemove = mousemoved;
  

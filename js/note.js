@@ -52,6 +52,8 @@ if (typeUser == "P") {
 }
 
 //if the token is invalid, display the login page
+setTimeout(function() {
+  loading(true);
 fetch("https://api.ecoledirecte.com/v3/" + typeUser + "/" + idUser + "/timelineAccueilCommun.awp?verbe=get&v=4.6.0", {
   "headers": {
       "accept": "application/json, text/plain, */*",
@@ -72,6 +74,8 @@ fetch("https://api.ecoledirecte.com/v3/" + typeUser + "/" + idUser + "/timelineA
   "mode": "cors",
   "credentials": "omit"
 }).then(response=>response.json()).then(data=>{
+  loading(false);
+
   console.log(data);
   //if the token is invalid, display the login page
   if (data.message == "Token invalide !") {
@@ -84,7 +88,7 @@ fetch("https://api.ecoledirecte.com/v3/" + typeUser + "/" + idUser + "/timelineA
   }
 }
 );
-
+}, 1000);
 function clickScelect(id, idTableau, idmoyenne) {
   //active class active
   //and class deactive nonActive
@@ -109,6 +113,8 @@ function clickScelect(id, idTableau, idmoyenne) {
 
 }
 //get note
+loading(true);
+
 fetch("https://api.ecoledirecte.com/v3/" + typeUserLong + "/" + idUser + "/notes.awp?verbe=get&v=4.8.0", {
   "headers": {
       "accept": "application/json, text/plain, */*",
@@ -134,6 +140,8 @@ fetch("https://api.ecoledirecte.com/v3/" + typeUserLong + "/" + idUser + "/notes
   addNote(data)
 }
 );
+loading(false);
+
 function addNote(data) {
   //get matiere and loop for matieres
   var numberMatiere = data.data.periodes[1].ensembleMatieres.disciplines.length;

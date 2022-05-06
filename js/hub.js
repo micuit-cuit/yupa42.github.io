@@ -39,6 +39,8 @@ if (typeUser == "P") {
 }
 
 //if the token is invalid, display the login page
+setTimeout(function(){
+loading(true);
 fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCommun.awp?verbe=get&v=4.6.0", {
   "headers": {
     "accept": "application/json, text/plain, */*",
@@ -60,6 +62,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
   "credentials": "omit"
 }).then(response => response.json())
     .then(data => {
+      loading(false);
         console.log(data);
         //if the token is invalid, display the login page
         if (data.message == "Token invalide !") {
@@ -72,7 +75,9 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUser+"/"+idUser+"/timelineAccueilCo
         }
     }
     );
+}, 1000);
 //get message not read in the api
+loading(true);
 fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages.awp?force=false&typeRecuperation=received&idClasseur=0&orderBy=date&order=desc&query=&onlyRead=&page=0&itemsPerPage=20&verbe=getall&v=4.6.0", {
         "headers": {
           "accept": "application/json, text/plain, */*",
@@ -94,6 +99,7 @@ fetch("https://api.ecoledirecte.com/v3/"+typeUserLong+"/"+idUser+"/messages.awp?
         "credentials": "omit"
       }).then(response => response.json())
             .then(data => {
+              loading(false);
                 console.log(data);
                 //if data.data.pagination.messagesRecusNotReadCount > 0, set display message_nodif true and display data.data.pagination.messagesRecusNotReadCount
                 if (data.data.pagination.messagesRecusNotReadCount >= 1) {

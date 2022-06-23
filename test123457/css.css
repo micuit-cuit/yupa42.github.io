@@ -1,5 +1,5 @@
 
-img{
+.A img{
     width: 100%;
     height: 100%;
     border-radius: 10px;
@@ -39,3 +39,56 @@ body{
     #div9 { grid-area: 1 / 2 / 3 / 4; }
     #div10 { grid-area: 1 / 3 / 3 / 5; }
     #div11 { grid-area: 1 / 1 / 3 / 2; }
+.dispayDiv{
+    background-color: #0000004f;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+}
+.dispayDivDiv {
+    background-color: #f3f3f3fd;
+    bottom: 10px;
+    height: 80%;
+    margin: 10%;
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+    width: 80%;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    z-index: 102;
+    margin-top: 0;
+}
+.dispayDivDivImage{
+    height: 100%;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.dispayDivDivImage img{
+    height: 100%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.dispayDivDivClose{
+    position: absolute;
+    top: 0;
+    z-index: 103;
+    background-color: #0000004f;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    text-align: center;
+
+}
